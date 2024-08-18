@@ -12,6 +12,9 @@ const produtos = require("./produtos");
 const sobreNos = require("./sobre-nos");
 const acessoRestrito = require("./acessoRestrito");
 const erro500 = require("./erro500");
+const comprasFinalizadas = require("./comprasFinalizadas");
+const compra = require("./compra");
+
 app.set("views", "./src/views");
 app.use(
   index,
@@ -25,7 +28,9 @@ app.use(
   produtos,
   sobreNos,
   acessoRestrito,
-  erro500
+  erro500,
+  comprasFinalizadas,
+  compra
 );
 
 module.exports = app;
