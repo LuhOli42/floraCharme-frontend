@@ -10,7 +10,8 @@ const perfil = require("./perfil");
 const produto = require("./produto");
 const produtos = require("./produtos");
 const sobreNos = require("./sobre-nos");
-
+const acessoRestrito = require("./acessoRestrito");
+const erro500 = require("./erro500");
 app.set("views", "./src/views");
 app.use(
   index,
@@ -22,7 +23,9 @@ app.use(
   perfil,
   produto,
   produtos,
-  sobreNos
+  sobreNos,
+  acessoRestrito,
+  erro500
 );
 
 module.exports = app;
