@@ -5,29 +5,6 @@ const video = document.querySelector(".cadastro__camera");
 const canvas = document.querySelector(".cadastro__canvas");
 const formulario = document.querySelector("[data-formulario]");
 
-let imagemUrl = "";
-
-iniciarBtnCamera.addEventListener("click", async () => {
-  const iniciarVideo = await navigator.mediaDevices.getUserMedia({
-    video: true,
-    audio: false,
-  });
-
-  iniciarBtnCamera.classList.add("disable");
-  btnTirarFoto.classList.remove("disable");
-
-  video.srcObject = iniciarVideo;
-});
-
-btnTirarFoto.addEventListener("click", () => {
-  canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-
-  imagemUrl = canvas.toDataURL("image/jpeg");
-
-  video.classList.add("disable");
-  canvas.classList.remove("disable");
-});
-
 formulario.addEventListener("submit", (evento) => {
   evento.preventDefault();
 
@@ -39,7 +16,7 @@ formulario.addEventListener("submit", (evento) => {
     cep: evento.target.elements["cep"].value,
     endereco: evento.target.elements["endereco"].value,
     complemento: evento.target.elements["complemento"].value,
-    imagem: imagemUrl,
+    // imagem: imagemUrl,
   };
 
   try {

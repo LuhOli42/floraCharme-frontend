@@ -29,7 +29,6 @@ async function pegarInformacoesDoPerfil() {
     }
 
     if (rawResponse.status === 200) {
-      fotoUsuario.src = response.imagem;
       perfilNome.innerHTML = response.nome;
       perfilEmail.innerHTML = response.email;
       perfilTelefone.innerHTML = response.telefone;
