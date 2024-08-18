@@ -12,12 +12,15 @@ const bearerToke = JSON.parse(localStorage.getItem("token_usuario")) || null;
 
 async function pegarInformacoesDoPerfil() {
   try {
-    const rawResponse = await fetch(`http://localhost:3000/usuario`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${bearerToke}`,
-      },
-    });
+    const rawResponse = await fetch(
+      `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/usuario`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${bearerToke}`,
+        },
+      }
+    );
 
     const response = await rawResponse.json();
 

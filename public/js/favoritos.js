@@ -8,12 +8,15 @@ const bearerToke = JSON.parse(localStorage.getItem("token_usuario")) || null;
 
 async function favoritosDbRequest() {
   try {
-    const rawResponse = await fetch(`http://localhost:3000/favoritos`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${bearerToke}`,
-      },
-    });
+    const rawResponse = await fetch(
+      `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/favoritos`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${bearerToke}`,
+        },
+      }
+    );
 
     const response = await rawResponse.json();
     if (rawResponse.status !== 200) {
@@ -97,7 +100,7 @@ for (let i = 0; i < btnLixeira.length; i++) {
     async function deletarProdutoDosFavorito() {
       try {
         const rawResponse = await fetch(
-          `http://localhost:3000/favoritos/${favoritos[i]._id}`,
+          `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/favoritos/${favoritos[i]._id}`,
           {
             method: "DELETE",
             headers: {
@@ -137,7 +140,7 @@ for (let i = 0; i < btnsCarrinhosProduto.length; i++) {
     async function addProdutoNoCarrinho() {
       try {
         const rawResponse = await fetch(
-          `http://localhost:3000/carrinho/${idProduto}`,
+          `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/carrinho/${idProduto}`,
           {
             method: "POST",
             headers: {
@@ -173,3 +176,25 @@ for (let i = 0; i < btnMaisInfos.length; i++) {
     window.location.href = `/produto/${itemId}`;
   });
 }
+
+const btnsFiltros = document.querySelectorAll(".filtros_btn");
+const produtosCard = document.querySelectorAll(".produtos__card");
+
+btnsFiltros.forEach((btn) => {
+  if (btn.innerHTML === "Todos") {
+    btn.addEventListener("click", () => {
+      produtosCard.forEach((produto) => {
+        produto.classList.remove("disable");
+      });
+    });
+  } else {
+    btn.addEventListener("click", () => {
+      produtosCard.forEach((produto) => {
+        produto.classList.remove("disable");
+        if (produto.children[0].children[4].innerHTML !== btn.innerHTML) {
+          produto.classList.add("disable");
+        }
+      });
+    });
+  }
+});

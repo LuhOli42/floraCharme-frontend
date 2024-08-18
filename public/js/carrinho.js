@@ -7,12 +7,15 @@ const bearerToke = JSON.parse(localStorage.getItem("token_usuario")) || null;
 
 async function carrinhoDbRequest() {
   try {
-    const rawResponse = await fetch(`http://localhost:3000/carrinho`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${bearerToke}`,
-      },
-    });
+    const rawResponse = await fetch(
+      `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/carrinho`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${bearerToke}`,
+        },
+      }
+    );
 
     const response = await rawResponse.json();
 
@@ -92,7 +95,7 @@ for (let i = 0; i < btnLixeira.length; i++) {
     async function deletarProdutoDoCarrinho() {
       try {
         const rawResponse = await fetch(
-          `http://localhost:3000/carrinho/${carrinho[i]._id}`,
+          `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/carrinho/${carrinho[i]._id}`,
           {
             method: "DELETE",
             headers: {
@@ -123,12 +126,15 @@ const popFinalizarCompra = document.querySelector(".popup__finalizado");
 btnComprar.addEventListener("click", () => {
   async function finalizarCompra() {
     try {
-      const rawResponse = await fetch(`http://localhost:3000/compras`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${bearerToke}`,
-        },
-      });
+      const rawResponse = await fetch(
+        `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/compras`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${bearerToke}`,
+          },
+        }
+      );
 
       if (rawResponse.status !== 201) {
         window.location.href = "/erro500";

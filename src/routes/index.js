@@ -2,7 +2,7 @@ const express = require("express");
 const routes = express.Router();
 const axios = require("axios");
 
-const serverUrl = `${process.env.BACKEND_SERVER_URL}:${process.env.PORT_BACKEND}`;
+const serverUrl = `${process.env.BACKEND_SERVER_URL}`;
 
 routes.get("/", async (req, res) => {
   try {

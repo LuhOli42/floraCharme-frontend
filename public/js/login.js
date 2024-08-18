@@ -18,14 +18,17 @@ form.addEventListener("submit", (event) => {
 
   async function postLogin() {
     try {
-      const rawResponse = await fetch(`http://localhost:3000/login`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: jsonObjeto,
-      });
+      const rawResponse = await fetch(
+        `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/login`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: jsonObjeto,
+        }
+      );
       const response = await rawResponse.json();
       if (rawResponse.status === 404) {
         paragrafoErro.classList.remove("disable");

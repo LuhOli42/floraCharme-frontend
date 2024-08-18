@@ -14,7 +14,7 @@ for (let i = 0; i < btnsCarrinhosProduto.length; i++) {
     async function addProdutoNoCarrinho() {
       try {
         const rawResponse = await fetch(
-          `http://localhost:3000/carrinho/${idProduto}`,
+          `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/carrinho/${idProduto}`,
           {
             method: "POST",
             headers: {

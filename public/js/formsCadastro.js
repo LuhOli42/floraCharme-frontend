@@ -44,14 +44,17 @@ formulario.addEventListener("submit", (evento) => {
 
   try {
     async function cadastro() {
-      const rawResponse = await fetch(`http://localhost:3000/usuario`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(listaRepostas),
-      });
+      const rawResponse = await fetch(
+        `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/usuario`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(listaRepostas),
+        }
+      );
       const response = await rawResponse.json();
 
       console.log(rawResponse);

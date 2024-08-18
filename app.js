@@ -4,7 +4,7 @@ const routes = require("./src/routes/routes.js");
 const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT_FRONTEND;
+const port = process.env.PORT;
 
 //Static Files
 app.use(express.static("public"));
