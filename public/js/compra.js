@@ -8,7 +8,7 @@ const bearerToke = JSON.parse(localStorage.getItem("token_usuario")) || null;
 async function carrinhoDbRequest() {
   try {
     const rawResponse = await fetch(
-      `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/carrinho`,
+      `https://flora-charme-backend-api-4e93afdd6a9a.herokuapp.com/compra`,
       {
         method: "GET",
         headers: {
